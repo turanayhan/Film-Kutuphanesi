@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380410774077",
+    "project_id": "film-kutuphanesi-f0670",
+    "storage_bucket": "film-kutuphanesi-f0670.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380410774077:android:00766719fb05307dfea054",
+        "android_client_info": {
+          "package_name": "com.example.filmkutuphanesi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIQqGziFzuzeEsIhMGnAa3Y7Zt_4L9YS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

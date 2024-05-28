@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Film Kutuphanesi</string>
+    <string name="last_name">Ad</string>
+    <string name="email">Email</string>
+    <string name="password">Şifre</string>
+    <string name="register">Kaydol</string>
+    <string name="first_name">Soyad</string>
+</resources>
