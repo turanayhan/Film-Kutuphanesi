@@ -23,30 +23,37 @@ public class Film {
     // Getter metotları
 
     public String getAd() {
+
         return ad;
     }
 
     public String getYonetmen() {
+
         return yonetmen;
     }
 
     public List<String> getOyuncular() {
+
         return oyuncular;
     }
 
     public String getTur() {
+
         return tur;
     }
 
     public int getCikisYili() {
+
         return cikisYili;
     }
 
     public int getSure() {
+
         return sure;
     }
 
     public static FilmBuilder builder(String ad) {
+
         return new FilmBuilder(ad);
     }
 }
