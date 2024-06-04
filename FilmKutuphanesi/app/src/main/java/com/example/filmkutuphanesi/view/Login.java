@@ -67,7 +67,6 @@ public class Login extends AppCompatActivity {
                             }
 
                         } else {
-                            // Giriş başarısız
                             makeText(Login.this, "Giriş başarısız", LENGTH_SHORT).show();
                         }
                     }

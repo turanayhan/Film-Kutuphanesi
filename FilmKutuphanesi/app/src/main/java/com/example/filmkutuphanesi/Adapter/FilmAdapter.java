@@ -39,7 +39,12 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
 
     @Override
     public int getItemCount() {
+
         return filmList.size();
+    }
+    public void test(){
+
+        System.out.println(filmList.toString());
     }
 
     public static class FilmViewHolder extends RecyclerView.ViewHolder {

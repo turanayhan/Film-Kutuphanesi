@@ -23,7 +23,7 @@ public class SecondScreen extends AppCompatActivity {
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Giriş yap butonuna tıklandığında Giriş Yap ekranına geçiş yap
+
                 Intent intent = new Intent(SecondScreen.this, Login.class);
                 startActivity(intent);
             }
@@ -32,7 +32,7 @@ public class SecondScreen extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Giriş yap butonuna tıklandığında Giriş Yap ekranına geçiş yap
+
                 Intent intent = new Intent(SecondScreen.this, Register.class);
                 startActivity(intent);
             }

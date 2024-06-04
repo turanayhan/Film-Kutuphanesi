@@ -20,7 +20,7 @@ public class SessionManager {
     public boolean login(String username, String password) {
         boolean isUserValid = sqliteManager.checkUser(username, password);
         if (isUserValid) {
-            // Kullanıcı doğrulandı, oturum açma durumunu güncelle
+
             sqliteManager.updateLoginStatus(username, true);
         }
         return isUserValid;

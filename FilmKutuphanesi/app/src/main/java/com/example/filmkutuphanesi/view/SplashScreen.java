@@ -16,7 +16,6 @@ public class SplashScreen extends AppCompatActivity {
 
     private SessionManager loginManager;
 
-    // Geçiş süresi (3 saniye)
     private static final long SPLASH_TIME_OUT = 3000;
 
     @Override
@@ -27,25 +26,20 @@ public class SplashScreen extends AppCompatActivity {
         loginManager = SessionManager.getInstance(this);
 
 
-
-        // 3 saniye sonra ana aktiviteye geçiş yap
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Ana aktiviteye geçiş yap
 
-                // Kullanıcı oturum açmış mı kontrol et
                 if (loginManager.isLoggedIn()) {
                     Intent intent = new Intent(SplashScreen.this, MoviePage.class);
                     startActivity(intent);
                     finish();
 
                 } else {
-                    // Kullanıcı oturum açmamışsa, giriş ekranına yönlendir
 
                     Intent intent = new Intent(SplashScreen.this, SecondScreen.class);
                     startActivity(intent);
-                    finish(); // Bu aktiviteyi kapat
+                    finish();
                 }
 
 

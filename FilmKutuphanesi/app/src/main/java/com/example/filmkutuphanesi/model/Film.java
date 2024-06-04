@@ -1,6 +1,5 @@
 package com.example.filmkutuphanesi.model;
 
-import com.example.filmkutuphanesi.Builder.FilmBuilder;
 import java.util.List;
 
 public class Film {
@@ -11,49 +10,60 @@ public class Film {
     private int cikisYili;
     private int sure;
 
-    public Film(FilmBuilder builder) {
-        this.ad = builder.ad;
-        this.yonetmen = builder.yonetmen;
-        this.oyuncular = builder.oyuncular;
-        this.tur = builder.tur;
-        this.cikisYili = builder.cikisYili;
-        this.sure = builder.sure;
+    public Film(String ad, String yonetmen, List<String> oyuncular, String tur, int cikisYili, int sure) {
+        this.ad = ad;
+        this.yonetmen = yonetmen;
+        this.oyuncular = oyuncular;
+        this.tur = tur;
+        this.cikisYili = cikisYili;
+        this.sure = sure;
     }
 
-    // Getter metotları
-
     public String getAd() {
-
         return ad;
     }
 
-    public String getYonetmen() {
+    public void setAd(String ad) {
+        this.ad = ad;
+    }
 
+    public String getYonetmen() {
         return yonetmen;
     }
 
-    public List<String> getOyuncular() {
+    public void setYonetmen(String yonetmen) {
+        this.yonetmen = yonetmen;
+    }
 
+    public List<String> getOyuncular() {
         return oyuncular;
     }
 
-    public String getTur() {
+    public void setOyuncular(List<String> oyuncular) {
+        this.oyuncular = oyuncular;
+    }
 
+    public String getTur() {
         return tur;
     }
 
-    public int getCikisYili() {
+    public void setTur(String tur) {
+        this.tur = tur;
+    }
 
+    public int getCikisYili() {
         return cikisYili;
     }
 
-    public int getSure() {
+    public void setCikisYili(int cikisYili) {
+        this.cikisYili = cikisYili;
+    }
 
+    public int getSure() {
         return sure;
     }
 
-    public static FilmBuilder builder(String ad) {
-
-        return new FilmBuilder(ad);
+    public void setSure(int sure) {
+        this.sure = sure;
     }
 }
