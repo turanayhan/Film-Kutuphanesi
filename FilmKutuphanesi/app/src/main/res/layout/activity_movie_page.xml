@@ -11,11 +11,46 @@
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme" />
 
+    <!-- Arama terimi girişi için EditText -->
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Ara..."
+        android:inputType="text"
+        android:imeOptions="actionSearch" />
+
+    <!-- Arama butonu -->
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextSearch"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Ara" />
+
+    <!-- Arama stratejisi seçimi için Spinner -->
+    <Spinner
+        android:id="@+id/spinnerSearchStrategy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSearch"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Sonuçların listeleneceği RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/spinnerSearchStrategy"
         android:padding="16dp"
         android:scrollbars="vertical" />
 
