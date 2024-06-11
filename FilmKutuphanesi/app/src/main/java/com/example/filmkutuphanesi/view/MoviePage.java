@@ -62,7 +62,6 @@ public class MoviePage extends AppCompatActivity {
 
         List<String> searchStrategies = Arrays.asList("Başlık", "Tür", "Çıkış Yılı");
 
-// Spinner'a Adapter'ı ayarlayın
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, searchStrategies);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSearchStrategy.setAdapter(adapter);
@@ -72,13 +71,8 @@ public class MoviePage extends AppCompatActivity {
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // EditText'ten arama terimini al
                 String searchTerm = editTextSearch.getText().toString();
-
-                // Spinner'dan seçilen arama stratejisini al
                 String selectedStrategy = (String) spinnerSearchStrategy.getSelectedItem();
-
-                // Seçilen arama stratejisine göre arama yapma işlemi
                 performSearch(selectedStrategy, searchTerm);
             }
         });
@@ -90,7 +84,6 @@ public class MoviePage extends AppCompatActivity {
 
 
     private void performSearch(String selectedStrategy, String searchTerm) {
-        // Seçilen arama stratejisine göre uygun SearchStrategy sınıfını oluşturun
         SearchStrategy strategy = null;
         switch (selectedStrategy) {
             case "Başlık":
@@ -105,7 +98,6 @@ public class MoviePage extends AppCompatActivity {
         }
 
         if (strategy != null) {
-            // Arama stratejisi ile arama yapma işlemi
             List<Film> searchResult = MovieLibrary.searchFilms(strategy, searchTerm);
 
           recyclerView.setAdapter(new FilmAdapter(searchResult));
@@ -144,9 +136,8 @@ public class MoviePage extends AppCompatActivity {
         filmList.add(new Film("Muhsin Bey", "Yavuz Turgul", Arrays.asList("Şener Şen", "Ugur Yücel"), "Drama", 1987, 111));
         filmList.add(new Film("Nefes: Vatan Sağolsun", "Levent Semerci", Arrays.asList("Mete Horozoğlu", "İbrahim Akoz"), "Savaş", 2009, 128));
         filmList.add(new Film("Eğreti Gelin", "Ömer Kavur", Arrays.asList("Tarık Akan", "Müjde Ar"), "Drama", 1983, 92));
-        filmList.add(new Film("Beynelmilel", "Muharrem Gülmez, Sirri Süreyya Önder", Arrays.asList("Cezmi Baskın", "Hakan Yılmaz"), "Drama", 2006, 101));
 
-        // İstediğiniz kadar film ekleyebilirsiniz.
+
 
         return filmList;
     }
@@ -166,7 +157,6 @@ public class MoviePage extends AppCompatActivity {
         filmList.add(new Film("Muhsin Bey", "Yavuz Turgul", Arrays.asList("Şener Şen", "Ugur Yücel"), "Drama", 1987, 111));
         filmList.add(new Film("Nefes: Vatan Sağolsun", "Levent Semerci", Arrays.asList("Mete Horozoğlu", "İbrahim Akoz"), "Savaş", 2009, 128));
         filmList.add(new Film("Eğreti Gelin", "Ömer Kavur", Arrays.asList("Tarık Akan", "Müjde Ar"), "Drama", 1983, 92));
-        filmList.add(new Film("Beynelmilel", "Muharrem Gülmez, Sirri Süreyya Önder", Arrays.asList("Cezmi Baskın", "Hakan Yılmaz"), "Drama", 2006, 101));
 
         // MovieLibrary nesnesini oluşturalım ve film listesini içeri aktaralım
         MovieLibrary library = new MovieLibrary(filmList);
