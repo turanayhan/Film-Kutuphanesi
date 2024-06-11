@@ -40,6 +40,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("com.google.firebase:firebase-database:21.0.0")
+    implementation("junit:junit:4.12")
     testImplementation("junit:junit:4.13.2")
     testImplementation ("org.mockito:mockito-core:3.12.4")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
