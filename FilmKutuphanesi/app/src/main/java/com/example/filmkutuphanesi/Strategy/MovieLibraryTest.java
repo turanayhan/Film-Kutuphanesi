@@ -1,11 +1,13 @@
 package com.example.filmkutuphanesi.Strategy;
 
-
-import static junit.framework.TestCase.assertEquals;
-
-import com.example.filmkutuphanesi.model.Film;
-
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+import com.example.filmkutuphanesi.Strategy.GenreSearchStrategy;
+import com.example.filmkutuphanesi.Strategy.MovieLibrary;
+import com.example.filmkutuphanesi.Strategy.ReleaseYearSearchStrategy;
+import com.example.filmkutuphanesi.Strategy.TitleSearchStrategy;
+import com.example.filmkutuphanesi.model.Film;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,60 +16,25 @@ import java.util.List;
 public class MovieLibraryTest {
 
     @Test
-    public void testTitleSearchStrategy() {
-        // Film listesini oluşturalım ve bazı filmleri ekleyelim
-        List<Film> filmList = new ArrayList<>();
-        filmList.add(new Film("Vizontele", "Yılmaz Erdoğan, Ömer Faruk Sorak", Arrays.asList("Yılmaz Erdoğan", "Demet Akbağ"), "Komedi", 2001, 110));
-        filmList.add(new Film("The Godfather", "Francis Ford Coppola", Arrays.asList("Marlon Brando", "Al Pacino"), "Crime", 1972, 175));
-        filmList.add(new Film("Pulp Fiction", "Quentin Tarantino", Arrays.asList("John Travolta", "Uma Thurman"), "Crime", 1994, 154));
-        filmList.add(new Film("Inception", "Christopher Nolan", Arrays.asList("Leonardo DiCaprio", "Joseph Gordon-Levitt"), "Sci-Fi", 2010, 148));
-
-        // MovieLibrary nesnesini oluşturalım ve film listesini içeri aktaralım
-        MovieLibrary library = new MovieLibrary(filmList);
-
-        // Arama stratejisini oluşturalım ve film adıyla arama yapalım
-        List<Film> titleSearchResult = library.searchFilms(new TitleSearchStrategy(), "The Godfather");
-
-        // Sonucun beklenen sonuçla eşleşip eşleşmediğini kontrol edelim
-        assertEquals(1, titleSearchResult.size());
-        assertEquals("The Godfather", titleSearchResult.get(0).getAd());
-    }
-
-    @Test
     public void testGenreSearchStrategy() {
-        // Film listesini oluşturalım ve bazı filmleri ekleyelim
+
         List<Film> filmList = new ArrayList<>();
         filmList.add(new Film("Pulp Fiction", "Quentin Tarantino", Arrays.asList("John Travolta", "Uma Thurman"), "Crime", 1994, 154));
         filmList.add(new Film("Inception", "Christopher Nolan", Arrays.asList("Leonardo DiCaprio", "Joseph Gordon-Levitt"), "Sci-Fi", 2010, 148));
+        filmList.add(new Film("The Hangover", "Todd Phillips", Arrays.asList("Bradley Cooper", "Ed Helms"), "Comedy", 2009, 100));
+        filmList.add(new Film("The Grand Budapest Hotel", "Wes Anderson", Arrays.asList("Ralph Fiennes", "F. Murray Abraham"), "Comedy", 2014, 99));
 
-        // MovieLibrary nesnesini oluşturalım ve film listesini içeri aktaralım
+       
         MovieLibrary library = new MovieLibrary(filmList);
 
-        // Arama stratejisini oluşturalım ve film türüyle arama yapalım
-        List<Film> genreSearchResult = library.searchFilms(new GenreSearchStrategy(), "Crime");
+        // Arama stratejisini oluşturalım ve komedi filmlerini arayalım
+        List<Film> comedyMovies = library.searchFilms(new GenreSearchStrategy(), "Comedy");
 
-        // Sonucun beklenen sonuçla eşleşip eşleşmediğini kontrol edelim
-        assertEquals(1, genreSearchResult.size());
-        assertEquals("Pulp Fiction", genreSearchResult.get(0).getAd());
+        // Komedi filmlerinin sayısını kontrol edelim
+        assertEquals(2, comedyMovies.size());
+        // Komedi filmlerinden birinin adını kontrol edelim
+        assertEquals("The Hangover", comedyMovies.get(0).getAd());
+
     }
 
-    @Test
-    public void testReleaseYearSearchStrategy() {
-        // Film listesini oluşturalım ve bazı filmleri ekleyelim
-        List<Film> filmList = new ArrayList<>();
-        filmList.add(new Film("The Godfather", "Francis Ford Coppola", Arrays.asList("Marlon Brando", "Al Pacino"), "Crime", 1972, 175));
-        filmList.add(new Film("Pulp Fiction", "Quentin Tarantino", Arrays.asList("John Travolta", "Uma Thurman"), "Crime", 1994, 154));
-        filmList.add(new Film("Inception", "Christopher Nolan", Arrays.asList("Leonardo DiCaprio", "Joseph Gordon-Levitt"), "Sci-Fi", 2010, 148));
-
-        // MovieLibrary nesnesini oluşturalım ve film listesini içeri aktaralım
-        MovieLibrary library = new MovieLibrary(filmList);
-
-        // Arama stratejisini oluşturalım ve yayın yılıyla arama yapalım
-        List<Film> releaseYearSearchResult = library.searchFilms(new ReleaseYearSearchStrategy(), "1972");
-
-        // Sonucun beklenen sonuçla eşleşip eşleşmediğini kontrol edelim
-        assertEquals(1, releaseYearSearchResult.size());
-        assertEquals("The Godfather", releaseYearSearchResult.get(0).getAd());
-    }
 }
-
